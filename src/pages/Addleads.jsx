@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Card, Form, Input, Button, InputNumber, Alert } from "antd";
-const API_URL = "http://localhost:3000";
 
 const AddLeads = () => {
   const [restaurantName, setRestaurantName] = useState('');
@@ -12,6 +11,7 @@ const AddLeads = () => {
   const [alertType, setAlertType] = useState('success');
   const [alertMessage, setAlertMessage] = useState('');
   const [form] = Form.useForm();
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
   const handlesubmit = async (event) => {
     event.preventDefault();
