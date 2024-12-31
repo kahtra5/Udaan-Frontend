@@ -14,8 +14,7 @@ import AddPoc from "./pages/AddPOC.jsx";
 import PendingCalls from "./pages/Pendingcalls.jsx";
 import TopPerformers from "./pages/Topperformers.jsx";
 import { Navigate } from "react-router-dom";
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 
 

@@ -10,7 +10,7 @@ const AddPOC = () => {
   const [alertType, setAlertType] = useState('success');
   const [alertMessage, setAlertMessage] = useState('');
   const [form] = Form.useForm(); // Create a form instance
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+  const API_URL = import.meta.env.VITE_API_KEY || 'http://localhost:3000';
   // Fetch restaurants from the backend
   useEffect(() => {
     const fetchRestaurants = async () => {

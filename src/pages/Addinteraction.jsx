@@ -11,7 +11,7 @@ const AddInteraction = () => {
   const [loadingRestaurants, setLoadingRestaurants] = useState(true); // State to show loading state for restaurants
   const [loadingPOCs, setLoadingPOCs] = useState(false); // State to show loading state for POCs
   const [form] = Form.useForm(); // Create a form instance
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+  const API_URL = import.meta.env.VITE_API_KEY || 'http://localhost:3000';
 
   const [showAlert, setShowAlert] = useState(false);
 
