@@ -10,12 +10,12 @@ const AddPOC = () => {
   const [alertType, setAlertType] = useState('success');
   const [alertMessage, setAlertMessage] = useState('');
   const [form] = Form.useForm(); // Create a form instance
-
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
   // Fetch restaurants from the backend
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await fetch("http://localhost:3000/getleads", {
+        const response = await fetch(`${API_URL}/getleads`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const AddPOC = () => {
 
   const handlesubmit = async (values) => {
     try {
-      const response = await fetch("http://localhost:3000/addpoc", {
+      const response = await fetch(`${API_URL}/addpoc`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
