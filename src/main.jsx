@@ -21,7 +21,7 @@ const AppWithNavbar = () => {
   const location = useLocation();
 
   // Exclude Navbar from specific routes
-  const excludedRoutes = ["/signup", "/login"];
+  const excludedRoutes = ["/signup", "/login", "/"];
   const shouldShowNavbar = !excludedRoutes.includes(location.pathname);
 
   const isLoggedin = localStorage.getItem("status") === "loggedin";
