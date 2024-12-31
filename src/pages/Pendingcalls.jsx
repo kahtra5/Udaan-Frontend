@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Table } from 'antd';
 import Navbar from "./Navbar.jsx";
 
-const API_URL = "http://localhost:3000";
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 const PendingCalls = () => {
   const [leads, setLeads] = useState([]);
