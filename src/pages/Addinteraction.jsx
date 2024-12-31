@@ -11,6 +11,7 @@ const AddInteraction = () => {
   const [loadingRestaurants, setLoadingRestaurants] = useState(true); // State to show loading state for restaurants
   const [loadingPOCs, setLoadingPOCs] = useState(false); // State to show loading state for POCs
   const [form] = Form.useForm(); // Create a form instance
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
   const [showAlert, setShowAlert] = useState(false);
 
@@ -18,7 +19,7 @@ const AddInteraction = () => {
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await fetch("http://localhost:3000/getleads", {
+        const response = await fetch(`${API_URL}/getleads`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -49,7 +50,7 @@ const AddInteraction = () => {
   const fetchContactedPOCId = async (restaurantId) => {
     setLoadingPOCs(true); // Set loading state for POCs
     try {
-      const response = await fetch("http://localhost:3000/getpocs", {
+      const response = await fetch(`${API_URL}/getpocs`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -74,7 +75,7 @@ const AddInteraction = () => {
 
   const handlesubmit = async (values) => {
     try {
-      const response = await fetch("http://localhost:3000/addinteraction", {
+      const response = await fetch(`${API_URL}/addinteraction`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
