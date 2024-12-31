@@ -1,6 +1,7 @@
 import { Form, Input, Button, Card, Alert } from "antd";
 import { useNavigate } from "react-router";
 import { useState } from "react"; 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
 
 
 
@@ -12,7 +13,7 @@ function Signup() {
   const onFinish = async (values) => {
     try {
       console.log(values);
-      let res = await fetch("http://localhost:3000/signup", {
+      let res = await fetch(`${API_URL}/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
