@@ -31,7 +31,7 @@ const AppWithNavbar = () => {
     <>
       {shouldShowNavbar && <Navbar />}
       <Routes>
-        <Route path="/" element={isLoggedin ? <App /> :<Login />} />
+        <Route path="/" element={isLoggedin ? <Getall /> :<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/getall" element={isLoggedin ? <Getall />: <Navigate to='/login'/>} />
