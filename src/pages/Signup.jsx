@@ -36,7 +36,7 @@ function Signup() {
 
     } catch (error) {
       console.log(error);
-      // show notification with the error message
+      
     }
     finally {
       setShowAlert(true);

@@ -6,11 +6,11 @@ const { TextArea } = Input;
 const { Option } = Select;
 
 const AddInteraction = () => {
-  const [restaurants, setRestaurants] = useState([]); // State to store restaurant data
-  const [POCs, setPOCs] = useState([]); // State to store contacted POC ID data
-  const [loadingRestaurants, setLoadingRestaurants] = useState(true); // State to show loading state for restaurants
-  const [loadingPOCs, setLoadingPOCs] = useState(false); // State to show loading state for POCs
-  const [form] = Form.useForm(); // Create a form instance
+  const [restaurants, setRestaurants] = useState([]); 
+  const [POCs, setPOCs] = useState([]); 
+  const [loadingRestaurants, setLoadingRestaurants] = useState(true); 
+  const [loadingPOCs, setLoadingPOCs] = useState(false); 
+  const [form] = Form.useForm(); 
   const API_URL = import.meta.env.VITE_API_KEY || 'http://localhost:3000';
 
   const [showAlert, setShowAlert] = useState(false);
@@ -32,23 +32,23 @@ const AddInteraction = () => {
 
         if (response.ok) {
           console.log(data);
-          setRestaurants(data); // Assuming 'data' is an array of restaurants
+          setRestaurants(data); 
         } else {
           alert("Failed to fetch restaurants");
         }
       } catch (error) {
         console.error("Error fetching restaurants:", error);
       } finally {
-        setLoadingRestaurants(false); // Set loading to false regardless of success or failure
+        setLoadingRestaurants(false); 
       }
     };
 
     fetchRestaurants();
-  }, []); // Empty dependency array ensures this runs only once
+  }, []); 
 
   // Fetch contacted POC IDs based on selected restaurant
   const fetchContactedPOCId = async (restaurantId) => {
-    setLoadingPOCs(true); // Set loading state for POCs
+    setLoadingPOCs(true); 
     try {
       const response = await fetch(`${API_URL}/getpocs`, {
         method: "POST",
@@ -62,14 +62,14 @@ const AddInteraction = () => {
 
       if (response.ok) {
         console.log(data);
-        setPOCs(data); // Assuming 'data' is an array of POCs
+        setPOCs(data); 
       } else {
         alert("Failed to fetch contacted POCs");
       }
     } catch (error) {
       console.error("Error fetching contacted POCs:", error);
     } finally {
-      setLoadingPOCs(false); // Set loading to false regardless of success or failure
+      setLoadingPOCs(false); 
     }
   };
 
@@ -90,8 +90,8 @@ const AddInteraction = () => {
         alert(data.message);
       } else {
         setShowAlert(true);
-        form.resetFields(); // Clear the form fields after successful submission
-        setTimeout(() => setShowAlert(false), 3000); // Hide the alert after 3 seconds
+        form.resetFields(); 
+        setTimeout(() => setShowAlert(false), 3000); 
       }
     } catch (error) {
       console.error('Error logging in:', error);
@@ -130,11 +130,11 @@ const AddInteraction = () => {
           }}
         >
           <Form
-            form={form} // Bind the form instance to the Form component
+            form={form} 
             name="addInteraction"
             initialValues={{
               remember: true,
-              order: 0 // Setting default value for the order field
+              order: 0 
             }}
             onFinish={handlesubmit}
             layout="vertical"
@@ -148,7 +148,7 @@ const AddInteraction = () => {
                 placeholder="Select a restaurant"
                 loading={loadingRestaurants}
                 allowClear
-                onChange={(value) => fetchContactedPOCId(value)} // Trigger fetchContactedPOCId on restaurant selection
+                onChange={(value) => fetchContactedPOCId(value)} 
               >
                 {restaurants.map((restaurant) => (
                   <Option key={restaurant._id} value={restaurant._id}>

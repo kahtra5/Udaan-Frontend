@@ -39,7 +39,7 @@ const AddLeads = () => {
       } else {
         setAlertType('success');
         setAlertMessage('Lead added successfully!');
-        form.resetFields(); // Clear the form fields after successful submission
+        form.resetFields(); 
       }
       setShowAlert(true);
       setTimeout(() => setShowAlert(false), 3000);

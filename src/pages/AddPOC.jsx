@@ -4,14 +4,14 @@ import { Card, Form, Input, Button, Select, Alert } from "antd";
 const { Option } = Select;
 
 const AddPOC = () => {
-  const [restaurants, setRestaurants] = useState([]); // State to store restaurants
-  const [loading, setLoading] = useState(true); // State to manage loading for dropdown
+  const [restaurants, setRestaurants] = useState([]); 
+  const [loading, setLoading] = useState(true); 
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState('success');
   const [alertMessage, setAlertMessage] = useState('');
-  const [form] = Form.useForm(); // Create a form instance
+  const [form] = Form.useForm(); 
   const API_URL = import.meta.env.VITE_API_KEY || 'http://localhost:3000';
-  // Fetch restaurants from the backend
+  
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
@@ -26,7 +26,7 @@ const AddPOC = () => {
         const data = await response.json();
 
         if (response.ok) {
-          setRestaurants(data); // Assuming data is an array of restaurants
+          setRestaurants(data); 
         } else {
           setAlertType('error');
           setAlertMessage('Failed to fetch restaurants');
@@ -38,7 +38,7 @@ const AddPOC = () => {
         setAlertMessage('An error occurred while fetching restaurants.');
         setShowAlert(true);
       } finally {
-        setLoading(false); // Set loading state to false
+        setLoading(false); 
       }
     };
 
@@ -64,7 +64,7 @@ const AddPOC = () => {
       } else {
         setAlertType('success');
         setAlertMessage('POC added successfully!');
-        form.resetFields(); // Clear the form fields after successful submission
+        form.resetFields(); 
 
       }
     } catch (error) {

@@ -33,7 +33,7 @@ const TrackOrder = () => {
   const [loading, setLoading] = useState(true);
   const [plotData, setPlotData] = useState(null);
 
-  // Fetch restaurants with orders > 0
+  
   useEffect(() => {
     const fetchRestaurants = async () => {
       setLoading(true);
@@ -56,7 +56,7 @@ const TrackOrder = () => {
     fetchRestaurants();
   }, []);
 
-  // Fetch interaction data for a selected restaurant
+  
   const handleRestaurantChange = async (restaurantId) => {
     setSelectedRestaurantId(restaurantId);
     if (restaurantId) {
@@ -76,7 +76,7 @@ const TrackOrder = () => {
         
         setInteractionData(data);
 
-        // Prepare data for plotting
+        
         const dates = data.map(entry => new Date(entry.interactionDate).toISOString().split('T')[0]);
         const orders = data.map(entry => entry.order);
         setPlotData({

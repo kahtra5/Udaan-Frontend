@@ -18,7 +18,7 @@ const TopPerformers = () => {
                 setTopPerformers(data);
                 console.log(data);
 
-                // console.log(response.json());
+                
             } catch (error) {
                 console.log(error);
             }

@@ -12,7 +12,7 @@ const PendingCalls = () => {
       try {
         const response = await fetch(`${API_URL}/leads/today`, {
           method: 'GET',
-          credentials: 'include', // Ensures cookies are included in the request
+          credentials: 'include', 
         });
         const data = await response.json();
         setLeads(data);

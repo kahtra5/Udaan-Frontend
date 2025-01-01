@@ -15,7 +15,7 @@ const GetAll = () => {
             const data = await response.json();
             setLeads(data);
   
-            // console.log(response.json());
+            
         } catch (error) {
             console.log(error);
         }
