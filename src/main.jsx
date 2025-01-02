@@ -21,15 +21,13 @@ import { Navigate } from "react-router-dom";
 const AppWithNavbar = () => {
   const location = useLocation();
 
-  // Exclude Navbar from specific routes
-  const excludedRoutes = ["/signup", "/login", "/"];
-  const shouldShowNavbar = !excludedRoutes.includes(location.pathname);
+
 
   const isLoggedin = localStorage.getItem("status") === "loggedin";
 
   return (
     <>
-      {shouldShowNavbar && <Navbar />}
+      {isLoggedin && <Navbar />}
       <Routes>
         <Route path="/" element={isLoggedin ? <Getall /> :<Login />} />
         <Route path="/login" element={<Login />} />
