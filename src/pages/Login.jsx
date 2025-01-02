@@ -10,7 +10,7 @@ function Login() {
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState("success");
   const [alertMessage, setAlertMessage] = useState("");
-  const [form] = Form.useForm(); // Ant Design Form instance
+  const [form] = Form.useForm(); 
 
   const onFinish = async (values) => {
     try {
@@ -23,30 +23,30 @@ function Login() {
         credentials: "include",
       });
 
-      const data = await res.json(); // Parse response data
+      const data = await res.json(); 
 
       if (res.ok) {
-        // Successful login
+        
         localStorage.setItem("status", "loggedin");
         setAlertMessage("Login successful! Redirecting...");
         setAlertType("success");
         setShowAlert(true);
         setTimeout(() => navigate("/getall"), 2000);
       } else {
-        // User not found or invalid credentials
+        
         setAlertMessage(data.message || "Invalid credentials. Please try again.");
         setAlertType("error");
         setShowAlert(true);
-        form.resetFields(); // Clear the form
-        setTimeout(() => setShowAlert(false), 3000); // Auto-hide alert after 3 seconds
+        form.resetFields(); 
+        setTimeout(() => setShowAlert(false), 3000); 
       }
     } catch (error) {
-      // Network or other errors
+      
       console.error("Error:", error);
       setAlertMessage("Something went wrong. Please try again later.");
       setAlertType("error");
       setShowAlert(true);
-      setTimeout(() => setShowAlert(false), 3000); // Auto-hide alert after 3 seconds
+      setTimeout(() => setShowAlert(false), 3000); 
     }
   };
 
@@ -88,7 +88,7 @@ function Login() {
           }}
         >
           <Form
-            form={form} // Attach the form instance
+            form={form} 
             name="login"
             initialValues={{ remember: true }}
             onFinish={onFinish}
